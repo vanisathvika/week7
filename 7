@@ -1,0 +1,42 @@
+Week 7
+
+1. Download cmros zip file from GitHub and extract the folder.
+2. Open CMR os in VMware and power on the system
+3. It will give an ip address , note it down somewhere
+4. In other window , open Kali Linux and run ifconfig command in terminal 
+5. Open nmap tool and give ip address of cmros
+6. Run this command in Kali : nmap -p -65535 -T4 -A -V (ip address of cmros)
+7. Open Kali browser, and go to (ip address of cmros)
+8. Right click on the page and click on "view page source"
+9. Scroll down to line 250+ u will see username and password in comments 
+10. Open terminal in Kali : ssh test@(ip address of cmros) -p 13652
+11. Enter password as : test
+12. Using this username and password login into CMR os
+13. Execute the following commands 
+ls
+cd /
+cd home/test
+cd Desktop 
+ls
+cat s3cr3t.txt
+: permission denied:
+14. Now , go to Kali window and power off that VM and power on again. Don't login .
+15. Open winscp tool on windows
+16. In the small box , select protocol as SCP , enter IP address of cmros in the ip box , port no as 13652 , username test , password test
+17. Click on connect , right side will be cmros , left , windows 
+18. From the right side , go to desktop folder and copy cap file and paste it in desktop on left side (windows)
+19. Now minimize all tabs , on windows desktop, right click and copy the cap file
+20. Open Kali , go to desktop and paste the file
+21. Now , open Wireshark app on Kali and press Ctrl + O
+22. Navigate to desktop and select the cap file
+23. From the list , right click on the one which says TCP
+24. Then after right click , go to Follow, click on TCP stream
+25. U will see a username and password, restart the cmros vm and login with these credentials 
+26. Now perform these commands 
+ls
+cd /
+cd home/test
+cd Desktop 
+ls
+cat s3cr3t.txt
+U will get output
